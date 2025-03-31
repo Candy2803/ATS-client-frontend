@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaGlobe } from "react-icons/fa";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,19 +27,22 @@ const Sidebar = () => {
       )}
       
       <div 
-        className={`fixed top-0 left-0 h-full w-64 bg-white transition-transform ${isMobile ? (isOpen ? "translate-x-0" : "-translate-x-full") : "translate-x-0"}`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white transition-transform duration-300 shadow-lg ${
+          isMobile 
+            ? (isOpen ? "translate-x-0" : "-translate-x-full") 
+            : "translate-x-0"
+        }`}
       >
         <div className="p-6 flex items-center gap-3 h-19.5 bg-teal-500 border-gray-200">
-        <div className="flex -mt-1 flex-col space-y-1">
+          <div className="flex -mt-1 flex-col space-y-1">
             <div className="w-7 h-1 bg-white rounded"></div>
             <div className="w-5 h-1 bg-white rounded"></div>
             <div className="w-3 h-1 bg-white rounded"></div>
-        </div>
-        <div className="flex flex-col items-center">
+          </div>
+          <div className="flex flex-col items-center">
             <span className="text-white -ml-6 text-sm">ATS</span>
             <span className="text-white -mt-2 font-bold text-xl">Menu</span>
-        </div>
-
+          </div>
         </div>
 
         <div className="p-4 flex items-center gap-2">
