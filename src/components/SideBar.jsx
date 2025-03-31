@@ -53,7 +53,7 @@ const Sidebar = () => {
 
         <nav className="p-4 space-y-7">
           <a href="/" className="block text-gray-700 hover:text-teal-600 font-medium">Home</a>
-          <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">A la carte menu</a>
+          <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Our menu</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Promotions</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">My Orders</a>
         </nav>
