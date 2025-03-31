@@ -10,6 +10,7 @@ const Home = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  
   const mealCategories = [
     { name: 'Breakfast', icon: '🍳', slug: 'breakfast' },
     { name: 'Appetizers', icon: '🍤', slug: 'appetizers' },
@@ -23,6 +24,7 @@ const Home = () => {
 
   return (
     <div className="flex h-screen">
+      {/* Updated sidebar container */}
       <div className={`fixed md:static left-0 top-0 h-full z-30 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out`}>
         <Sidebar />
       </div>
@@ -33,6 +35,11 @@ const Home = () => {
             <button className="mr-2 md:hidden" onClick={toggleSidebar}>
               <FaBars size={20} />
             </button>
+            {/* Added ATS Menu text for mobile */}
+            <div className="flex flex-col md:hidden">
+              <span className="text-white text-xs">ATS</span>
+              <span className="text-white font-bold">Menu</span>
+            </div>
           </div>
           <div className="flex items-center">
             <div className="mr-2 border border-white rounded px-1 flex items-center">
@@ -50,15 +57,14 @@ const Home = () => {
           <div className="p-6">
             <h2 className="font-bold text-lg mb-4">MEAL CATEGORIES</h2>
             <div className="grid grid-cols-4 gap-4 mb-6">
-            {mealCategories.map((category, index) => (
+              {mealCategories.map((category, index) => (
                 <div key={index} className="flex flex-col items-center">
-                 <Link to={`/${category.slug}`} className="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-1">
-  <span className="text-2xl">{category.icon}</span>
-</Link>
-
-    <span className="text-xs text-center">{category.name}</span>
-  </div>
-))}
+                  <Link to={`/${category.slug}`} className="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-1">
+                    <span className="text-2xl">{category.icon}</span>
+                  </Link>
+                  <span className="text-xs text-center">{category.name}</span>
+                </div>
+              ))}
             </div>
 
             <h2 className="font-bold text-lg mb-4">Promotions</h2>
@@ -96,7 +102,6 @@ const Home = () => {
             <User size={20} />
             <span className="text-xs mt-1">Profile</span>
           </div>
-          
         </nav>
       </div>
     </div>
