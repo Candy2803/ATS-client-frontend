@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Home as HomeIcon, Menu as MenuIcon, User, ShoppingCart } from 'lucide-react';
 import { FaBars, FaSearch } from "react-icons/fa";
 import Sidebar from './SideBar';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -9,17 +10,24 @@ const Home = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  const mealCategories = [
+    { name: 'Breakfast', icon: '🍳', slug: 'breakfast' },
+    { name: 'Appetizers', icon: '🍤', slug: 'appetizers' },
+    { name: 'Soup/salad', icon: '🥗', slug: 'soups' },
+    { name: 'Main Course', icon: '🍽️', slug: 'mainCourse' },
+    { name: 'Desserts', icon: '🍰', slug: 'desserts' },
+    { name: 'Drinks', icon: '🥤', slug: 'drinks' },
+    { name: 'For Kids', icon: '🧸', slug: 'forKids' },
+    { name: 'Pasta', icon: '🍝', slug: 'pasta' },
+  ];
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar - Fixed position on left side */}
       <div className={`fixed md:static left-0 top-0 h-full z-30 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out`}>
         <Sidebar />
       </div>
       
-      {/* Main Content */}
       <div className="flex flex-col w-full md:ml-64">
-        {/* Header */}
         <header className="flex items-center justify-between p-4 bg-teal-500 h-19.5 text-white">
           <div className="flex items-center">
             <button className="mr-2 md:hidden" onClick={toggleSidebar}>
@@ -38,34 +46,23 @@ const Home = () => {
           </div>
         </header>
 
-        {/* Main Content Area */}
         <main className="flex-1 bg-white rounded-t-3xl overflow-y-auto">
           <div className="p-6">
-            {/* Meal Categories */}
-            <h2 className="font-bold text-lg mb-4">Meal categories</h2>
+            <h2 className="font-bold text-lg mb-4">MEAL CATEGORIES</h2>
             <div className="grid grid-cols-4 gap-4 mb-6">
-              {[
-                { name: 'Breakfast', icon: '🍳' },
-                { name: 'Appetizers', icon: '🍤' },
-                { name: 'Soup/salad', icon: '🥗' },
-                { name: 'Main Course', icon: '🍽️' },
-                { name: 'Desserts', icon: '🍰' },
-                { name: 'Drinks', icon: '🥤' },
-                { name: 'For Kids', icon: '🧸' },
-                { name: 'Pasta', icon: '🍝' },
-              ].map((category, index) => (
+            {mealCategories.map((category, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <a href='' className="bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center mb-1">
-                    <span className="text-2xl">{category.icon}</span>
-                  </a>
-                  <span className="text-xs text-center">{category.name}</span>
-                </div>
-              ))}
+                 <Link to={`/${category.slug}`} className="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-1">
+  <span className="text-2xl">{category.icon}</span>
+</Link>
+
+    <span className="text-xs text-center">{category.name}</span>
+  </div>
+))}
             </div>
 
-            {/* Promotions */}
             <h2 className="font-bold text-lg mb-4">Promotions</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               <div className="border h-80 rounded-lg overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlsa3NoYWtlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Milk shakes" className="w-full h-58 object-cover" />
                 <div className="p-2">
@@ -86,7 +83,6 @@ const Home = () => {
           </div>
         </main>
 
-        {/* Bottom Navigation - Only visible on mobile and tablet */}
         <nav className="md:hidden bg-white border-t border-gray-200 flex justify-between items-center px-8 py-2">
           <div className="flex flex-col items-center text-teal-500">
             <HomeIcon size={20} />
@@ -100,10 +96,7 @@ const Home = () => {
             <User size={20} />
             <span className="text-xs mt-1">Profile</span>
           </div>
-          <div className="flex flex-col items-center text-gray-400">
-            <ShoppingCart size={20} />
-            <span className="text-xs mt-1">Cart</span>
-          </div>
+          
         </nav>
       </div>
     </div>

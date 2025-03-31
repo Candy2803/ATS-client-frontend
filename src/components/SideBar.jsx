@@ -37,12 +37,12 @@ const Sidebar = () => {
         </div>
         <div className="flex flex-col items-center">
             <span className="text-white -ml-6 text-sm">ATS</span>
-            <span className="text-white font-bold text-xl">Menu</span>
+            <span className="text-white -mt-2 font-bold text-xl">Menu</span>
         </div>
 
         </div>
 
-        <div className="p-4 border-b flex items-center gap-2">
+        <div className="p-4 flex items-center gap-2">
           <FaGlobe className="text-gray-600" />
           <select className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
             <option>English</option>
@@ -52,19 +52,19 @@ const Sidebar = () => {
         </div>
 
         <nav className="p-4 space-y-7">
-          <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Home</a>
+          <a href="/" className="block text-gray-700 hover:text-teal-600 font-medium">Home</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">A la carte menu</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Promotions</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">My Orders</a>
         </nav>
 
-        <div className="p-4 border-t space-y-7">
+        <div className="p-4 space-y-7">
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">About us</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Refund Policy</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Terms and conditions</a>
         </div>
 
-        <div className="p-4 border-t space-y-7">
+        <div className="p-4 space-y-7">
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Reservation form</a>
           <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Feedback form</a>
         </div>
