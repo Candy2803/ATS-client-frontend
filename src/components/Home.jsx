@@ -36,7 +36,7 @@ const Home = () => {
               <FaBars size={20} />
             </button>
             {/* Added ATS Menu text for mobile */}
-            <div className="flex ml-20 flex-col md:hidden">
+            <div className="flex ml-10 flex-col md:hidden">
               <span className="text-white text-xs">ATS</span>
               <span className="text-white font-bold">Menu</span>
             </div>
