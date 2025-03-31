@@ -32,9 +32,7 @@ const Home = () => {
       <div className="flex flex-col w-full md:ml-64">
         <header className="flex items-center justify-between p-4 bg-teal-500 h-19.5 text-white">
           <div className="flex items-center">
-            <button className="mr-2 md:hidden" onClick={toggleSidebar}>
-              <FaBars size={20} />
-            </button>
+            
             {/* Added ATS Menu text for mobile */}
             <div className="flex ml-10 flex-col md:hidden">
               <span className="text-white text-xs">ATS</span>
