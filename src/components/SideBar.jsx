@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaGlobe } from "react-icons/fa";
+import { useLanguage } from "../App"; // Update with your correct path
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { language, texts, changeLanguage } = useLanguage();
 
   useEffect(() => {
     const handleResize = () => {
@@ -14,6 +16,10 @@ const Sidebar = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleLanguageChange = (e) => {
+    changeLanguage(e.target.value);
+  };
 
   return (
     <>
@@ -36,7 +42,7 @@ const Sidebar = () => {
         )}
         
         <div 
-          className={`fixed top-0 left-0 h-full w-64 bg-white transition-transform duration-300 shadow-xl z-50 ${
+          className={`fixed top-0 left-0 h-full w-64 bg-white transition-transform duration-300 z-50 ${
             isMobile 
               ? (isOpen ? "translate-x-0" : "-translate-x-full") 
               : "translate-x-0"
@@ -51,7 +57,7 @@ const Sidebar = () => {
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-white -ml-6 text-sm">ATS</span>
-                <span className="text-white -mt-2 font-bold text-xl">Menu</span>
+                <span className="text-white -mt-2 font-bold text-xl">{texts.menu}</span>
               </div>
             </div>
             
@@ -69,30 +75,34 @@ const Sidebar = () => {
 
           <div className="p-4 flex items-center gap-2">
             <FaGlobe className="text-gray-600" />
-            <select className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
-              <option>English</option>
-              <option>French</option>
-              <option>Spanish</option>
+            <select 
+              className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+              value={language}
+              onChange={handleLanguageChange}
+            >
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="es">Spanish</option>
             </select>
           </div>
 
           <div className="overflow-y-auto h-[calc(100%-130px)]">
             <nav className="p-4 space-y-7">
-              <a href="/" className="block text-gray-700 hover:text-teal-600 font-medium">Home</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Our menu</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Promotions</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">My Orders</a>
+              <a href="/" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.home}</a>
+              <a href="/menu" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.ourMenu}</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.promotions}</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.myOrders}</a>
             </nav>
 
             <div className="p-4 space-y-7">
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">About us</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Refund Policy</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Terms and conditions</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.aboutUs}</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.refundPolicy}</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.termsAndConditions}</a>
             </div>
 
             <div className="p-4 space-y-7">
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Reservation form</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">Feedback form</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.reservationForm}</a>
+              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.feedbackForm}</a>
             </div>
           </div>
         </div>

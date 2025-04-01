@@ -3,15 +3,17 @@ import { useState } from 'react';
 import { Search, ArrowLeft } from 'lucide-react';
 import Sidebar from './SideBar'; 
 import DetailModal from './Detail';
+import { useLanguage } from '../App';
 
 
 const AppetizersComponent = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { texts } = useLanguage();
   const appetizersItems = [
     {
       id: 1,
-      name: 'Appetizer 1',
+      name: texts.Appetizer1 || 'Appetizer 1',
       price: 85.00,
       discountPrice: null,
       discountPercentage: null,
@@ -19,7 +21,7 @@ const AppetizersComponent = () => {
     },
     {
       id: 2,
-      name: 'Appetizer 2',
+      name: texts.Appetizer2 || 'Appetizer 2',
       price: 85.00,
       discountPrice: 76.00,
       discountPercentage: 5,
@@ -27,7 +29,7 @@ const AppetizersComponent = () => {
     },
     {
       id: 3,
-      name: 'Appetizer 3',
+      name: texts.Appetizer3 || 'Appetizer 3',
       price: 85.00,
       discountPrice: null,
       discountPercentage: null,
@@ -35,7 +37,7 @@ const AppetizersComponent = () => {
     },
     {
       id: 4,
-      name: 'Appetizer 4',
+      name: texts.Appetizer4 || 'Appetizer 4',
       price: 85.00,
       discountPrice: null,
       discountPercentage: null,
