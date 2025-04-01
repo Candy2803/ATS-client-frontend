@@ -42,16 +42,29 @@ const Sidebar = () => {
               : "translate-x-0"
           }`}
         >
-          <div className="p-6 flex items-center gap-3 h-19.5 bg-teal-500 border-gray-200">
-            <div className="flex -mt-1 flex-col space-y-1">
-              <div className="w-7 h-1 bg-white rounded"></div>
-              <div className="w-5 h-1 bg-white rounded"></div>
-              <div className="w-3 h-1 bg-white rounded"></div>
+          <div className="p-6 flex items-center justify-between h-19.5 bg-teal-500 border-gray-200">
+            <div className="flex items-center gap-3">
+              <div className="flex -mt-1 flex-col space-y-1">
+                <div className="w-7 h-1 bg-white rounded"></div>
+                <div className="w-5 h-1 bg-white rounded"></div>
+                <div className="w-3 h-1 bg-white rounded"></div>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-white -ml-6 text-sm">ATS</span>
+                <span className="text-white -mt-2 font-bold text-xl">Menu</span>
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-white -ml-6 text-sm">ATS</span>
-              <span className="text-white -mt-2 font-bold text-xl">Menu</span>
-            </div>
+            
+            {/* Added dedicated close button */}
+            {isMobile && (
+              <button 
+                className="text-white p-1 rounded-full hover:bg-teal-600 transition-colors"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close menu"
+              >
+                <FaTimes size={24} />
+              </button>
+            )}
           </div>
 
           <div className="p-4 flex items-center gap-2">
