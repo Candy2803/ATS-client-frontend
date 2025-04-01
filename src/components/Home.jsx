@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Home as HomeIcon, Menu as MenuIcon, User, ShoppingCart } from 'lucide-react';
-import { FaBars, FaSearch } from "react-icons/fa";
+import { FaBars, FaSearch, FaArrowRight } from "react-icons/fa";
 import Sidebar from './SideBar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -22,6 +22,10 @@ const Home = () => {
     { name: 'Pasta', icon: '🍝', slug: 'pasta' },
   ];
 
+  const handleShowAllPromotions = () => {
+    navigate('/promotions');
+  };
+
   return (
     <div className="flex h-screen">
       {/* Updated sidebar container */}
@@ -32,19 +36,16 @@ const Home = () => {
       <div className="flex flex-col w-full md:ml-64">
         <header className="flex items-center justify-between p-4 bg-teal-500 h-19.5 text-white">
           <div className="flex items-center">
-            
             <div className="flex ml-10 flex-col md:hidden">
               <span className="text-white text-xs">ATS</span>
               <span className="text-white font-bold">Menu</span>
             </div>
           </div>
           <div className="flex items-center">
-            <div className="mr-2 border border-white rounded px-1 flex items-center">
-              <span className="mr-1">English</span>
-              <span>▾</span>
-            </div>
-            <button className="mx-2">◯</button>
-            <button>
+            <input
+              type="text" placeholder='Search' className='bg-white placeholder-gray-500 mr-4 h-10 rounded-2xl'></input>
+            {/* <button className="mx-2">◯</button> */}
+            <button className='mr-10'>
               <FaSearch size={20} />
             </button>
           </div>
@@ -64,7 +65,17 @@ const Home = () => {
               ))}
             </div>
 
-            <h2 className="font-bold text-lg mb-4">Promotions</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="font-bold text-lg">Promotions</h2>
+              <button 
+                onClick={handleShowAllPromotions}
+                className="flex items-center text-teal-500 font-medium text-sm"
+              >
+                Show All
+                <FaArrowRight className="ml-1" size={12} />
+              </button>
+            </div>
+            
             <div className="grid grid-cols-2 gap-5">
               <div className="border h-80 rounded-lg overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlsa3NoYWtlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Milk shakes" className="w-full h-58 object-cover" />
@@ -85,21 +96,6 @@ const Home = () => {
             </div>
           </div>
         </main>
-
-        <nav className="md:hidden bg-white border-t border-gray-200 flex justify-between items-center px-8 py-2">
-          <div className="flex flex-col items-center text-teal-500">
-            <HomeIcon size={20} />
-            <span className="text-xs mt-1">Home</span>
-          </div>
-          <div className="flex flex-col items-center text-gray-400">
-            <MenuIcon size={20} />
-            <span className="text-xs mt-1">Menu</span>
-          </div>
-          <div className="flex flex-col items-center text-gray-400">
-            <User size={20} />
-            <span className="text-xs mt-1">Profile</span>
-          </div>
-        </nav>
       </div>
     </div>
   );

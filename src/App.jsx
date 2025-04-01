@@ -13,6 +13,7 @@ import Soups from './components/Soups';
 import DetailComponent from './components/Detail';
 import { CartProvider } from './Contexts/CartContext';
 import Cart from './components/ShoppingCart';
+import PromotionsPage from './components/Promotions';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -42,6 +43,7 @@ function App() {
             <Route path='/:mainCourse' element={<MainCourse onItemClick={handleItemClick} />} />
             <Route path='/pasta' element={<Pasta onItemClick={handleItemClick} />} />
             <Route path='/soups' element={<Soups onItemClick={handleItemClick} />} />
+            <Route path='/promotions' element={<PromotionsPage />} />
           </Routes>
         </Router>
       )}
