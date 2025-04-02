@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './components/Sidebar'; // Adjust path as needed
+import Sidebar from './SideBar'; // Adjust path as needed
 
 const Reservation = () => {
   const navigate = useNavigate();
