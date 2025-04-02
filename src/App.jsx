@@ -15,6 +15,7 @@ import { CartProvider } from './Contexts/CartContext';
 import Cart from './components/ShoppingCart';
 import PromotionsPage from './components/Promotions';
 import Menu from './components/Menu';
+import Reservation from './components/Reservations';
 
 export const LanguageContext = createContext();
 
@@ -194,6 +195,7 @@ function App() {
               <Route path='/soups' element={<Soups onItemClick={handleItemClick} />} />
               <Route path='/promotions' element={<PromotionsPage />} />
               <Route path='/menu' element={<Menu />} />
+              <Route path='/reservation' element={<Reservation />} />
             </Routes>
           </Router>
         )}

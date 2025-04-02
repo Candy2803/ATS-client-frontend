@@ -101,7 +101,7 @@ const Sidebar = () => {
             </div>
 
             <div className="p-4 space-y-7">
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.reservationForm}</a>
+              <a href="reservation" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.reservationForm}</a>
               <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.feedbackForm}</a>
             </div>
           </div>
