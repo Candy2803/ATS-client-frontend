@@ -19,6 +19,8 @@ import Reservation from './components/Reservations';
 import CheckoutOptions from './components/Checkout';
 import AboutUs from './components/About';
 import RefundPolicy from './components/Refund';
+import TermsAndConditions from './components/Terms';
+import FeedbackForm from './components/Feedback';
 
 export const LanguageContext = createContext();
 
@@ -202,6 +204,8 @@ function App() {
               <Route path="/checkout" element={<CheckoutOptions />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/feedback" element={<FeedbackForm />} />
             </Routes>
           </Router>
         )}
