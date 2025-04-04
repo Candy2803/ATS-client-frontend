@@ -16,6 +16,9 @@ import Cart from './components/ShoppingCart';
 import PromotionsPage from './components/Promotions';
 import Menu from './components/Menu';
 import Reservation from './components/Reservations';
+import CheckoutOptions from './components/Checkout';
+import AboutUs from './components/About';
+import RefundPolicy from './components/Refund';
 
 export const LanguageContext = createContext();
 
@@ -196,6 +199,9 @@ function App() {
               <Route path='/promotions' element={<PromotionsPage />} />
               <Route path='/menu' element={<Menu />} />
               <Route path='/reservation' element={<Reservation />} />
+              <Route path="/checkout" element={<CheckoutOptions />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/refund" element={<RefundPolicy />} />
             </Routes>
           </Router>
         )}

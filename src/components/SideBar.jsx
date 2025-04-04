@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaGlobe } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useLanguage } from "../App"; // Update with your correct path
 
 const Sidebar = () => {
@@ -19,6 +20,13 @@ const Sidebar = () => {
 
   const handleLanguageChange = (e) => {
     changeLanguage(e.target.value);
+  };
+
+  // Close the sidebar on mobile when a link is clicked
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -88,21 +96,20 @@ const Sidebar = () => {
 
           <div className="overflow-y-auto h-[calc(100%-130px)]">
             <nav className="p-4 space-y-7">
-              <a href="/" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.home}</a>
-              <a href="/menu" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.ourMenu}</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.promotions}</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.myOrders}</a>
+              <Link to="/" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.home}</Link>
+              <Link to="/menu" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.ourMenu}</Link>
+              <Link to="/promotions" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.promotions}</Link>
             </nav>
 
             <div className="p-4 space-y-7">
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.aboutUs}</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.refundPolicy}</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.termsAndConditions}</a>
+              <Link to="/about" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.aboutUs}</Link>
+              <Link to="/refund" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.refundPolicy}</Link>
+              <Link to="/terms" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.termsAndConditions}</Link>
             </div>
 
             <div className="p-4 space-y-7">
-              <a href="reservation" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.reservationForm}</a>
-              <a href="#" className="block text-gray-700 hover:text-teal-600 font-medium">{texts.feedbackForm}</a>
+              <Link to="/reservation" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.reservationForm}</Link>
+              <Link to="/feedback" className="block text-gray-700 hover:text-teal-600 font-medium" onClick={handleLinkClick}>{texts.feedbackForm}</Link>
             </div>
           </div>
         </div>
